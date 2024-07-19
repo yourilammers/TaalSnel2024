@@ -1,0 +1,51 @@
+.highlight-g {
+    background-color: #fbe8c9;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 2px solid #f2b24c;
+}
+  
+.highlight-s {
+    background-color: #fbdede;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 2px solid #eb5757;
+}
+.tooltip {
+    display: none;
+    background-color: #f1f3f9;
+    border:1px lightgray;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top:125%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+    white-space: nowrap;
+    opacity:1;
+    border: 1px solid #dee2e6;
+    border-radius:5px;
+}
+  
+.editable-content {
+  margin-top: 16px;
+  text-align: left;
+  align-self: center;
+  min-height: 300px;
+  max-height: 400px;
+  width: 60%;
+  margin: auto;
+  resize: none;
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  background-size: cover;
+  border-radius: 10px;
+  outline: 1px solid;
+  outline-color: rgba(191, 204, 217, 0.5);
+  box-shadow: 0 0 12px 8px rgba(156, 204, 252, 0.2);
+  line-height: 1.5em;
+}

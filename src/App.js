@@ -1,8 +1,17 @@
 import React from 'react';
+import {Hero, Frontdemo} from './components'
+import AppAppBar from './components/AppAppBar';
+
 
 function App() {
-  const value = 'World';
-  return <div>Hello {value}</div>;
+  
+  return (
+    <div className="App">
+      <AppAppBar/>
+      <Hero />
+      <Frontdemo/>
+    </div>
+  );
 }
 
 export default App;
