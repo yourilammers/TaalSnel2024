@@ -40,10 +40,11 @@ function Frontdemo() {
     setLoading(true);
     contentDivRef.current.innerHTML = ''; // Clear the existing content
     const chunks = chunkText(text);
-
+    // https://taalsnel-function-app.azurewebsites.net/api/processtextfunction
+    // http://localhost:7071/api/ProcessTextFunction
     for (const chunk of chunks) {
       try {
-        const response = await axios.post('http://localhost:7071/api/ProcessTextFunction', { text: chunk });
+        const response = await axios.post('https://taalsnel-function-app.azurewebsites.net/api/processtextfunction', { text: chunk });
         console.log('API Response:', response.data); // Debugging
         updateContentDiv(response.data.correctedText);
       } catch (error) {
