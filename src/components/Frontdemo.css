@@ -11,41 +11,108 @@
     position: relative;
     border-bottom: 2px solid #eb5757;
 }
-.tooltip {
-    display: none;
-    background-color: #f1f3f9;
-    border:1px lightgray;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    top:125%;
-    transform: translateX(-50%);
-    margin-bottom: 5px;
-    white-space: nowrap;
-    opacity:1;
-    border: 1px solid #dee2e6;
-    border-radius:5px;
-}
   
 .editable-content {
-  margin-top: 16px;
+  margin-top: 0px;
   text-align: left;
   align-self: center;
   min-height: 300px;
   max-height: 400px;
-  width: 60%;
   margin: auto;
   resize: none;
   display: block;
   padding: 10px;
   font-size: 16px;
   background-size: cover;
-  border-radius: 10px;
-  outline: 1px solid;
-  outline-color: rgba(191, 204, 217, 0.5);
-  box-shadow: 0 0 12px 8px rgba(156, 204, 252, 0.2);
   line-height: 1.5em;
 }
+
+.editable-content:focus {
+    border: 0px solid transparent;  /* Hide border on focus */
+    outline: none;  /* Ensure outline is none on focus */
+}
+
+.demo-box{
+    border-radius: 10px;
+    outline: 1px solid;
+    outline-color: rgba(191, 204, 217, 0.5);
+    box-shadow: 0 0 12px 8px rgba(156, 204, 252, 0.2);
+    width: 60%;
+    margin: 0px auto;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+.demo-box-header{
+    border-bottom: 1px solid rgba(191, 204, 217, 0.5);
+    margin-bottom:  0px;
+    font-size: 16px;
+    padding:10px;
+    text-align: left;
+}
+
+.demo-box-footer{
+    border-top: 1px solid rgba(191, 204, 217, 0.5);
+    margin-bottom:  0px;
+    font-size: 16px;
+    padding:10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+
+
+
+/* Tooltip styling */
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid rgba(191, 204, 217, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width:200px; /* Set width to ensure proper layout */
+  }
+  
+  /* Tooltip header styling */
+  .tooltip-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Tooltip divider styling */
+  .tooltip-divider {
+    height: 1px;
+    background-color: rgba(191, 204, 217, 0.5);
+    margin: 5px -10px;
+  }
+  
+  /* Tooltip body styling */
+  .tooltip-body {
+    margin-bottom: 10px;
+  }
+  
+  /* Tooltip footer styling */
+  .tooltip-footer {
+    text-align: left;
+    margin-top:8px;
+  }
+  
+  .tooltip-footer button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .tooltip-footer button:hover {
+    background-color: #0056b3;
+  }
