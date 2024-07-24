@@ -1,0 +1,42 @@
+.demo-box{
+    border-radius: 10px;
+    outline: 1px solid;
+    outline-color: rgba(191, 204, 217, 0.5);
+    box-shadow: 0 0 12px 8px rgba(156, 204, 252, 0.2);
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    height:100%;
+}
+
+.demo-box-footer{
+    border-top: 1px solid rgba(191, 204, 217, 0.5);
+    margin-bottom:  0px;
+    font-size: 16px;
+    padding:10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.demo-rule-explanation{
+    margin-top: 0px;
+    text-align: left;
+    align-self: center;
+    height:400px;
+    margin: auto;
+    resize: none;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    background-size: cover;
+    line-height: 1.5em;
+}
+
+.demo-rule-explanation p{
+margin: 0px 0px;
+color: #5e636e;
+}

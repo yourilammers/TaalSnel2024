@@ -1,5 +1,20 @@
 import axios from 'axios';
 
+// http://localhost:7071/api/ProcessTextFunction
+// https://taalsnel-function-app.azurewebsites.net/api/processtextfunction
+
+// Function to determine the redirect URI based on the current hostname
+const getRedirectUri = () => {
+  const hostname = window.location.hostname;
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:3000/';
+  } else {
+    return 'https://taalsnel-function-app.azurewebsites.net/api/processtextfunction';
+  }
+};
+
+
+
 export const chunkText = (text, batchSize = 3) => {
   const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
   let batches = [];
@@ -19,7 +34,7 @@ export const handleProcessText = async (text, setLoading, contentDivRef, updateC
   const chunks = chunkText(text);
   for (const chunk of chunks) {
     try {
-      const response = await axios.post('https://taalsnel-function-app.azurewebsites.net/api/processtextfunction', { text: chunk });
+      const response = await axios.post(getRedirectUri(), { text: chunk });
       console.log('API Response:', response.data); // Debugging
       updateContentDiv(response.data.correctedText);
     } catch (error) {

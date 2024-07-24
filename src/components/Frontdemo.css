@@ -16,8 +16,7 @@
   margin-top: 0px;
   text-align: left;
   align-self: center;
-  min-height: 300px;
-  max-height: 400px;
+height:400px;
   margin: auto;
   resize: none;
   display: block;
@@ -37,7 +36,7 @@
     outline: 1px solid;
     outline-color: rgba(191, 204, 217, 0.5);
     box-shadow: 0 0 12px 8px rgba(156, 204, 252, 0.2);
-    width: 60%;
+    width: 100%;
     margin: 0px auto;
     padding: 0px;
     border-radius: 10px;

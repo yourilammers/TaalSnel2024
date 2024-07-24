@@ -1,9 +1,10 @@
+// src/components/Frontdemo.js
 import React, { useState, useRef, useEffect } from 'react';
 import { Box, Button } from '@mui/material';
 import { handleProcessText, pasteDemoText, clearTextField } from './FrontdemoSupport';
-import './Frontdemo.css';  // Import the CSS file
+import './Frontdemo.css';
 
-function Frontdemo() {
+function Frontdemo({ onExplainMistake }) {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const [mistakeCount, setMistakeCount] = useState(0);
@@ -62,7 +63,14 @@ function Frontdemo() {
     }
   };
 
+  const findRelevantSentence = (text, word) => {
+    const sentences = text.match(/[^.!?]*[.!?]/g) || [text];
+    return sentences.find(sentence => sentence.includes(word)) || '';
+  };
+  
+
   const createTooltipContent = (word) => {
+    const sentence = findRelevantSentence(text, word.w);
     const tooltip = document.createElement('div');
     tooltip.className = 'tooltip';
     tooltip.innerHTML = `
@@ -73,17 +81,19 @@ function Frontdemo() {
       </div>
       <div class="tooltip-divider"></div>
       <div class="tooltip-footer">
-        <button>Apply Correction</button>
+        <button class="apply-correction">Apply Correction</button>
+        <button class="explain-mistake">Explain mistake</button>
       </div>
     `;
 
-    tooltip.querySelector('button').onclick = (event) => replaceWord(event, word.w, word.c);
+    tooltip.querySelector('.apply-correction').onclick = (event) => replaceWord(event, word.w, word.c);
+    tooltip.querySelector('.explain-mistake').onclick = (event) => onExplainMistake(sentence, word.w, word.c);
     return tooltip;
   };
 
   const updateContentDiv = (corrections) => {
     const contentDiv = contentDivRef.current;
-
+  
     corrections.forEach((correction) => {
       correction.words.forEach((word, i) => {
         if (word.c) {
@@ -91,7 +101,7 @@ function Frontdemo() {
           span.className = `highlight highlight-${word.t}`;
           span.onclick = (event) => showTooltip(event, word);
           span.innerText = word.w;
-
+  
           contentDiv.appendChild(span);
         } else {
           const textNode = document.createTextNode(word.w);
@@ -103,18 +113,18 @@ function Frontdemo() {
       });
       contentDiv.appendChild(document.createTextNode(' ')); // Add space after each sentence
     });
-
+  
     // Update mistake count
     const count = contentDiv.querySelectorAll('.highlight').length;
     setMistakeCount(count);
   };
-
+  
   const showTooltip = (event, word) => {
     if (tooltipRef.current) {
       tooltipRef.current.style.display = 'none';
     }
 
-    const tooltip = createTooltipContent(word);
+    const tooltip = createTooltipContent(word, text);
     document.body.appendChild(tooltip);
     tooltipRef.current = tooltip;
     wordRef.current = event.currentTarget;
@@ -126,12 +136,8 @@ function Frontdemo() {
   };
 
   return (
-    <Box
-    className = 'demo-box'
-    >
-      <Box
-        className = 'demo-box-header'
-      >
+    <Box className='demo-box'>
+      <Box className='demo-box-header'>
         TaalSnel Demo
       </Box>
       <Box
@@ -142,12 +148,8 @@ function Frontdemo() {
         className="editable-content"
         spellCheck="false"
       >
-
-
       </Box>
-      <Box
-        className = 'demo-box-footer'
-      >
+      <Box className='demo-box-footer'>
         <Button
           onClick={() => handleProcessText(text, setLoading, contentDivRef, updateContentDiv)}
           disabled={loading}
@@ -205,6 +207,5 @@ function Frontdemo() {
     </Box>
   );
 }
-
 
 export default Frontdemo;

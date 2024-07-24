@@ -24,7 +24,7 @@ export default function Hero() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          pt: { xs: 14, sm: 20 },
+          pt: { xs: 10, sm: 15 },
           pb: { xs: 0, sm: 0 },
         }}
       >

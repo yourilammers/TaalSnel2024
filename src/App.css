@@ -1,0 +1,20 @@
+/* src/App.css */
+.columns {
+    display: flex;
+    gap: 10px; /* Adds space between the columns */
+    width: 60%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the columns */
+  }
+  
+  .frontdemo {
+    flex: 2; /* Makes Frontdemo take up more space */
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  .RuleExplanation {
+    flex: 1; /* Makes MistakeExplanation take up less space */
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
