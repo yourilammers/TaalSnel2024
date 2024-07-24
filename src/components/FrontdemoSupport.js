@@ -7,7 +7,7 @@ import axios from 'axios';
 const getRedirectUri = () => {
   const hostname = window.location.hostname;
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'http://localhost:3000/';
+    return 'http://localhost:7071/api/ProcessTextFunction/';
   } else {
     return 'https://taalsnel-function-app.azurewebsites.net/api/processtextfunction';
   }

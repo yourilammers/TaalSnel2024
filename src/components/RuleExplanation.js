@@ -2,12 +2,23 @@ import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { Box, Button } from '@mui/material';
 import './RuleExplanation.css';
 
+// Function to determine the redirect URI based on the current hostname
+const getRedirectUri = () => {
+  const hostname = window.location.hostname;
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:7071/api/ExplainMistakeFunction';
+  } else {
+    return 'https://taalsnel-function-app.azurewebsites.net/api/explainmistakefunction';
+  }
+};
+
+
 const RuleExplanation = forwardRef((props, ref) => {
   const [content, setContent] = useState('<p>Select a correction to see the explanation here.</p>');
 
   const fetchExplanation = async (sentence, incorrectWord, correctWord) => {
     try {
-      const response = await fetch('http://localhost:7071/api/ExplainMistakeFunction', {
+      const response = await fetch(getRedirectUri(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
