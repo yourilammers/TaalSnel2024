@@ -34,9 +34,18 @@
     font-size: 16px;
     background-size: cover;
     line-height: 1.5em;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .demo-rule-explanation p{
 margin: 0px 0px;
 color: #5e636e;
 }
+
+.box-content-align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

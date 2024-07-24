@@ -168,35 +168,8 @@ function Frontdemo({ onExplainMistake }) {
         >
           Clear
         </Button>
-        <div
-          className="char-counter"
-          style={{
-            color: 'black',
-            padding: '5px 10px',
-            fontSize: '14px',
-            userSelect: 'none',
-            pointerEvents: 'none',
-            display: 'inline-flex',
-          }}
-        >
-          {charCount} / 1000 characters
-        </div>
-        <div
-          className="mistake-counter"
-          style={{
-            backgroundColor: '#eb5757',
-            borderRadius: '50%',
-            color: 'white',
-            padding: '5px 10px',
-            fontSize: '14px',
-            userSelect: 'none',
-            pointerEvents: 'none',
-            display: 'inline-flex',
-            float: 'right',
-          }}
-        >
-          {mistakeCount}
-        </div>
+        <div className="char-counter">{charCount} / 1000 characters</div>
+        <div className="mistake-counter">{mistakeCount}</div>
       </Box>
     </Box>
   );

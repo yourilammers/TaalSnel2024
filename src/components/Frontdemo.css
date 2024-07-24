@@ -115,3 +115,25 @@ height:400px;
   .tooltip-footer button:hover {
     background-color: #0056b3;
   }
+
+  .char-counter{
+    color: black;
+    padding: 5px 10px;
+    font-size: 14px;
+    user-select: none;
+    pointer-events: none;
+    display: inline-flex;
+  }
+
+  .mistake-counter {
+    background-color: #eb5757;
+    border-radius: 50%;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    user-select: none;
+    pointer-events: none;
+    display: inline-flex;
+    float: right;
+    margin-top:4px;
+  }

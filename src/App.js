@@ -12,6 +12,9 @@ function App() {
       ruleExplanationRef.current.explainMistake(sentence, incorrectWord, correctWord);
     }
   };
+  document.title = 'TaalSnel';
+
+
 
   return (
     <div className="App">
