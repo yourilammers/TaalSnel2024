@@ -50,7 +50,7 @@ const RuleExplanation = forwardRef((props, ref) => {
       </Box>
       <Box className='demo-box-footer'>
         <Button variant="contained" sx={{ mr: 1 }}>
-          Thanks
+        Learn more...
         </Button>
       </Box>
     </Box>

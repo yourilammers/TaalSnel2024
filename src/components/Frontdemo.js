@@ -1,4 +1,3 @@
-// src/components/Frontdemo.js
 import React, { useState, useRef, useEffect } from 'react';
 import { Box, Button } from '@mui/material';
 import { handleProcessText, pasteDemoText, clearTextField } from './FrontdemoSupport';
@@ -63,14 +62,7 @@ function Frontdemo({ onExplainMistake }) {
     }
   };
 
-  const findRelevantSentence = (text, word) => {
-    const sentences = text.match(/[^.!?]*[.!?]/g) || [text];
-    return sentences.find(sentence => sentence.includes(word)) || '';
-  };
-  
-
-  const createTooltipContent = (word) => {
-    const sentence = findRelevantSentence(text, word.w);
+  const createTooltipContent = (word, sentence) => {
     const tooltip = document.createElement('div');
     tooltip.className = 'tooltip';
     tooltip.innerHTML = `
@@ -93,15 +85,17 @@ function Frontdemo({ onExplainMistake }) {
 
   const updateContentDiv = (corrections) => {
     const contentDiv = contentDivRef.current;
-  
+
     corrections.forEach((correction) => {
+      const sentenceText = correction.words.map(word => word.w).join(' ');
       correction.words.forEach((word, i) => {
         if (word.c) {
           const span = document.createElement('span');
           span.className = `highlight highlight-${word.t}`;
-          span.onclick = (event) => showTooltip(event, word);
+          span.dataset.sentence = sentenceText; // Store the entire sentence in the dataset
+          span.onclick = (event) => showTooltip(event, word, span.dataset.sentence);
           span.innerText = word.w;
-  
+
           contentDiv.appendChild(span);
         } else {
           const textNode = document.createTextNode(word.w);
@@ -113,18 +107,18 @@ function Frontdemo({ onExplainMistake }) {
       });
       contentDiv.appendChild(document.createTextNode(' ')); // Add space after each sentence
     });
-  
+
     // Update mistake count
     const count = contentDiv.querySelectorAll('.highlight').length;
     setMistakeCount(count);
   };
-  
-  const showTooltip = (event, word) => {
+
+  const showTooltip = (event, word, sentence) => {
     if (tooltipRef.current) {
       tooltipRef.current.style.display = 'none';
     }
 
-    const tooltip = createTooltipContent(word, text);
+    const tooltip = createTooltipContent(word, sentence);
     document.body.appendChild(tooltip);
     tooltipRef.current = tooltip;
     wordRef.current = event.currentTarget;
