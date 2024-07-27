@@ -15,7 +15,7 @@ export default function Hero() {
           theme.palette.mode === 'light'
             ? 'linear-gradient(180deg, #CEE5FD, #FFF)'
             : `linear-gradient(#02294F, ${alpha('#090E10', 0.0)})`,
-        backgroundSize: '100% 20%',
+        backgroundSize: '100% 100%',
         backgroundRepeat: 'no-repeat',
       })}
     >
@@ -29,6 +29,7 @@ export default function Hero() {
         }}
       >
         <Stack spacing={2} useFlexGap sx={{ width: { xs: '100%', sm: '70%' } }}>
+          
           <Typography
             variant="h1"
             sx={{
