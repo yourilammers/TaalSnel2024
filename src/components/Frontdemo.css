@@ -16,7 +16,7 @@
   margin-top: 0px;
   text-align: left;
   align-self: center;
-height:400px;
+  height:400px;
   margin: auto;
   resize: none;
   display: block;
@@ -31,17 +31,87 @@ height:400px;
     outline: none;  /* Ensure outline is none on focus */
 }
 
-.demo-box{
+.demo-box-left{
     border-radius: 10px;
     outline: 1px solid;
     outline-color: rgba(191, 204, 217, 0.5);
     box-shadow: 0 0 12px 8px rgba(156, 204, 252, 0.2);
-    width: 100%;
     margin: 0px auto;
     padding: 0px;
     border-radius: 10px;
     background-color: #fff;
     text-align: center;
+    position:relative;
+    z-index:1000;
+    flex:2;
+    min-width:0;
+}
+
+.demo-box-right{
+  border-radius: 10px;
+  outline: 1px solid;
+  outline-color: rgba(191, 204, 217, 0.5);
+  box-shadow: 0 0 12px 8px rgba(156, 204, 252, 0.2);
+  margin: 0px auto;
+  padding: 0px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  position:relative;
+  z-index:1000;
+  flex:1;
+  min-width:0;
+}
+
+.demo-box-right-content{
+  height:400px;
+  overflow:hidden;
+  overflow-y:scroll;
+  padding:10px;
+}
+
+
+.correction-list-item {
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin: 5px 0px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom:8px;
+  text-align: left;
+  display:flex;
+}
+
+/* Circle for Grammar (Red) */
+.circle-grammar {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #eb5757; /* Red */
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Circle for Spelling (Yellow) */
+.circle-spelling {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #f2b24c; /* Yellow */
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+.demo-container {
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between items */
+  align-items: flex-start; /* Align items to the start of the flex container */
+  gap: 20px; /* Space between the two boxes */
 }
 
 .demo-box-header{

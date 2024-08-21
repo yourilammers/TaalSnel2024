@@ -27,8 +27,9 @@ export const chunkText = (text, batchSize = 3) => {
   return batches;
 };
 
-export const handleProcessText = async (text, setLoading, contentDivRef, updateContentDiv) => {
+export const handleProcessText = async (text, setLoading, contentDivRef, updateContentDiv, setCorrectionsList) => {
   console.log('handleprocess activated...');
+  setCorrectionsList([]);  // Clear the correction list
   setLoading(true);
   contentDivRef.current.innerHTML = ''; // Clear the existing content
   const chunks = chunkText(text);
@@ -45,13 +46,15 @@ export const handleProcessText = async (text, setLoading, contentDivRef, updateC
   setLoading(false);
 };
 
-export const pasteDemoText = (setText, contentDivRef) => {
+export const pasteDemoText = (setText, contentDivRef, setCorrectionsList) => {
   const demoText = "ik heb gister naar de bioschoop geweest met mijn vriend. we hebben een leuke film gezien, maar de popkorn was te duur. daarna hebben we naar een restaurant gegaan om te eten. we was zo hongur dat we bijna alles van het menu hebben bestelt. de serveerster heeft ons het besteling vergete, dus we moest lang wachten. uiteindelijk, hebben we lekker gegeten en zijn naar huis gegaan. het was een gezellige avond, maar de volgende keer gaan we naar een andere resaurant want deze was niet zo goed.";
   setText(demoText);
   contentDivRef.current.innerText = demoText;
+  setCorrectionsList([]);  // Clear the correction list
 };
 
-export const clearTextField = (setText, contentDivRef) => {
+export const clearTextField = (setText, contentDivRef, setCorrectionsList) => {
     setText('');
     contentDivRef.current.innerHTML = '';
+    setCorrectionsList([]);  // Clear the correction list
   };
