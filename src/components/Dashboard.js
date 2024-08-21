@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   HomeIcon,
-  Squares2X2Icon, // Kanban Icon
   InboxIcon,
   UsersIcon,
   ShoppingBagIcon,
